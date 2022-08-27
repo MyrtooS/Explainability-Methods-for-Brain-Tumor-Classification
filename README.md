@@ -1,5 +1,7 @@
 # Explainability-Methods-for-Brain-Tumor-Classification
 
+This is a project that produces explainable heatmaps for brain tumor classification models.
+
 How to use this code:
 
 Step 1: 
