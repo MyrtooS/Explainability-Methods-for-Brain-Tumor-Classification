@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-def predict_image_efficientnet(image,model):
+def predict_image_multi(image,model):
 
   ypred = model.predict(image) 
   j= np.argmax(ypred[0])
