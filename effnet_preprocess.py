@@ -20,5 +20,4 @@ def gradcam_preprocess(image):
   image = cv2.resize(image, (224, 224))
   image = image.astype('float32') 
   image = np.expand_dims(image, axis=0)
-  # image = tf.keras.applications.vgg16.preprocess_input(image, data_format=None)
   return image
