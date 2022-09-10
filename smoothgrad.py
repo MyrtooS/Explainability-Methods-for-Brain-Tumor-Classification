@@ -9,7 +9,7 @@ def smoothgrad(image, class_index, model, noise):
 
   class_index = 2
   explainer = SmoothGrad()
-# Compute SmoothGrad on VGG16
+# Compute SmoothGrad 
   grid = explainer.explain(data, model, class_index, 20, noise)
   explainer.save(grid, ".", "smoothgrad.png")
   fig, ax = plt.subplots(1,2,figsize=(10,10))
