@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+#this method predicts the class of an image for the multi classification
 def predict_image_multi(image,model):
 
   ypred = model.predict(image) 
