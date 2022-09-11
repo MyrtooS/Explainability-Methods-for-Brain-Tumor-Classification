@@ -1,3 +1,4 @@
+#this method produces the predictions for the binary classification
 def binary_predict(image,model):
 
     ypred = model.predict(image)
