@@ -2,7 +2,7 @@ import tensorflow as tf
 import cv2
 import matplotlib.pyplot as plt
 
-
+# Generate a linear interpolation between the baseline and the original image.
 def interpolate_images(baseline,
                        image,
                        alphas):
@@ -15,6 +15,8 @@ def interpolate_images(baseline,
 
   return images
 
+# Calculate gradients in order to measure the relationship between
+# changes to a feature and changes in the model's predictions
 def compute_gradients(images, target_class_idx,model):
     with tf.GradientTape() as tape:
       tape.watch(images)
@@ -22,12 +24,16 @@ def compute_gradients(images, target_class_idx,model):
       probs = tf.nn.softmax(logits, axis=-1)[:, target_class_idx]
     return tape.gradient(probs, images)
 
+  
+#  Computing the numerical approximation of an integral for Integrated Gradients
 def integral_approximation(gradients):
   # riemann_trapezoidal
   grads = (gradients[:-1] + gradients[1:]) / tf.constant(2.0)
   integrated_gradients = tf.math.reduce_mean(grads, axis=0)
   return integrated_gradients
 
+
+# Combine the 3 previous general parts together into an IntegratedGradients function 
 def integrated_gradients(baseline,
                          image,
                          target_class_idx,
@@ -73,6 +79,8 @@ def one_batch(baseline, image, alpha_batch, target_class_idx,model):
                                        target_class_idx=target_class_idx,model=model)
     return gradient_batch
 
+
+# Visualize attributions, and overlay them on the original image
 def plot(baseline,
                           image,
                           target_class_idx,
