@@ -10,5 +10,7 @@ Download and save all the py files (libraries) because they contain the code for
 Step 2: 
 The code for the classification models is in load_image_train_models.ipynb. They are already trained and saved so you can use this to see how the models are built and trained
 
+If you run the code and train the models again you should save them and override the already trained models in order to use them to produce the explainable heatmaps.
+
 Step 3:
 The code in  4_classes_MRI_Classification.ipynb and Binary_MRI_Classification.ipynb is the code that produces the explainable heatmaps.
