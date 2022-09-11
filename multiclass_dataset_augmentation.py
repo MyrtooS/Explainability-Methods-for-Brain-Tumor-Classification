@@ -11,7 +11,10 @@ from keras.preprocessing.image import load_img
 from numpy import expand_dims
 import cv2
 
-# To create the dataset I use the images in the "Training" folder only 
+# This code was used locally to augment the multi class dataset 
+# Then the images were uploaded to Google Drive
+
+ 
 path = "/home/myrto/mri_kaggle/Training/"
 image_data = []
 IMG_SIZE = 300
